@@ -15,6 +15,7 @@ import { usePathname, useRouter, useParams } from "next/navigation";
 import StayDatesRangeInput from "../StayDatesRangeInput";
 import GuestsInput from "../GuestsInput";
 import { Route } from "next";
+import { StayDataType } from "@/data/types";
 
 export interface ListingStayDetailPageProps {}
 
@@ -247,12 +248,13 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/* 6 */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 text-sm text-neutral-700 dark:text-neutral-300 ">
-          {data.next_to.map((item: string) => (
-            <div key={item} className="flex items-center space-x-3">
-              <i className={`text-3xl las la-chevron-right`}></i>
-              <span className=" ">{item}</span>
-            </div>
-          ))}
+          {data.next_to &&
+            data.next_to.map((item: string) => (
+              <div key={item} className="flex items-center space-x-3">
+                <i className={`text-3xl las la-chevron-right`}></i>
+                <span className=" ">{item}</span>
+              </div>
+            ))}
         </div>
       </div>
     );
@@ -447,7 +449,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           {renderSection1()}
           {renderSection2()}
           {renderSection3()}
-          {data?.next_to && renderSection4()}
+          {renderSection4()}
           {renderSection7()}
           {renderSection8()}
         </div>

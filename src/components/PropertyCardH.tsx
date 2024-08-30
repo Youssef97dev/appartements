@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export interface PropertyCardHProps {
   className?: string;
-  data?: StayDataType;
+  data?: any;
 }
 
 const DEMO_DATA = DEMO_STAY_LISTINGS[0];

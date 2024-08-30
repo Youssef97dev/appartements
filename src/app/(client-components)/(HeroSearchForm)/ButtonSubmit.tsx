@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 
 interface Props {
-  href?: PathName;
+  href?: any;
 }
 
 const ButtonSubmit: FC<Props> = ({ href = "/listing-stay-map" }) => {

@@ -4,7 +4,6 @@ import BackgroundSection from "@/components/BackgroundSection";
 import BgGlassmorphism from "@/components/BgGlassmorphism";
 import { TaxonomyType } from "@/data/types";
 import SectionGridAuthorBox from "@/components/SectionGridAuthorBox";
-import SectionGridCategoryBox from "@/components/SectionGridCategoryBox";
 import SectionHero3 from "@/app/(server-components)/SectionHero3";
 import CardCategory6 from "@/components/CardCategory6";
 import SectionGridFeaturePlaces from "@/components/SectionGridFeaturePlaces";
@@ -82,9 +81,6 @@ function PageHome3() {
             <CardCategory6 taxonomy={DEMO_CATS_2[4]} />
           </div>
         </div>
-
-        {/* SECTION */}
-        <SectionGridCategoryBox />
 
         {/* SECTION */}
         <div className="relative py-16">

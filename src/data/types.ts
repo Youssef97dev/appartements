@@ -69,11 +69,11 @@ interface Amenity {
 }
 
 export interface StayDataType {
-  id: string | number;
+  id: string;
   href: string;
   title: string;
-  featuredImage: StaticImageData | string;
-  galleryImgs: (StaticImageData | string)[];
+  featuredImage: string;
+  galleryImgs: string[];
   reviewStart: number;
   reviewCount: number;
   price: string;
@@ -90,7 +90,7 @@ export interface StayDataType {
   avatar: string;
   description: string[];
   ameneties: Amenity[];
-  next_to?: string[] | undefined;
+  next_to: string[];
 }
 
 //

@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export interface StayCardHProps {
   className?: string;
-  data?: StayDataType;
+  data?: any;
 }
 
 const DEMO_DATA = DEMO_STAY_LISTINGS[0];
@@ -19,20 +19,8 @@ const StayCardH: FC<StayCardHProps> = ({
   className = "",
   data = DEMO_DATA,
 }) => {
-  const {
-    galleryImgs,
-    listingCategory,
-    address,
-    title,
-    href,
-    like,
-    saleOff,
-    isAds,
-    price,
-    reviewStart,
-    reviewCount,
-    id,
-  } = data;
+  const { galleryImgs, title, href, price, reviewStart, reviewCount, id } =
+    data;
 
   const renderSliderGallery = () => {
     return (
@@ -43,8 +31,6 @@ const StayCardH: FC<StayCardHProps> = ({
           uniqueID={`StayCardH_${id}`}
           href={href}
         />
-        <BtnLikeIcon isLiked={like} className="absolute right-3 top-3" />
-        {saleOff && <SaleOffBadge className="absolute left-3 top-3" />}
       </div>
     );
   };
@@ -102,13 +88,8 @@ const StayCardH: FC<StayCardHProps> = ({
     return (
       <div className="flex-grow p-3 sm:p-5 flex flex-col">
         <div className="space-y-2">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            <span>
-              {listingCategory.name} in {address}
-            </span>
-          </div>
+          <div className="text-sm text-neutral-500 dark:text-neutral-400"></div>
           <div className="flex items-center space-x-2">
-            {isAds && <Badge name="ADS" color="green" />}
             <h2 className="text-lg font-medium capitalize">
               <span className="line-clamp-1">{title}</span>
             </h2>
