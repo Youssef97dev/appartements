@@ -6,13 +6,15 @@ import SectionGridFeatureProperty from "./(home)/SectionGridFeatureProperty";
 import SectionHero2 from "@/app/(server-components)/SectionHero2";
 import SectionAbout from "@/components/SectionAbout";
 import ServiceSection from "@/components/ServiceSection";
+import SectionHero3 from "./(server-components)/SectionHero3";
 
 function PageHome() {
   return (
     <main className="nc-PageHome2 relative overflow-hidden">
+      <div className=" px-1 sm:px-4 mb-24 ">
+        <SectionHero3 className="" />
+      </div>
       <div className="container relative space-y-24 mb-24 lg:space-y-28 lg:mb-28">
-        <SectionHero2 className="" />
-
         <div className="relative py-16">
           <BackgroundSection />
           <SectionGridFeatureProperty />
