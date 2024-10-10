@@ -5,7 +5,7 @@ import { PostDataType } from "@/data/types";
 import Pagination from "@/shared/Pagination";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import WidgetTags from "./WidgetTags";
-import WidgetCategories from "./WidgetCategories";
+//import WidgetCategories from "./WidgetCategories";
 import WidgetPosts from "./WidgetPosts";
 import Card3 from "./Card3";
 
@@ -49,7 +49,6 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
         </div>
         <div className="w-full space-y-7 mt-24 lg:mt-0 lg:w-2/5 lg:pl-10 xl:pl-0 xl:w-1/3 ">
           <WidgetTags />
-          <WidgetCategories />
           <WidgetPosts />
         </div>
       </div>

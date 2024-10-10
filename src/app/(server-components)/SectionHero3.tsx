@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import imagePng from "@/images/23.jpeg";
 import Image from "next/image";
-import ButtonPrimary from "@/shared/ButtonPrimary";
 import HeroRealEstateSearchForm from "../(client-components)/(HeroSearchForm)/(real-estate-search-form)/HeroRealEstateSearchForm";
 
 export interface SectionHero3Props {
@@ -25,7 +24,7 @@ const SectionHero3: FC<SectionHero3Props> = ({ className = "" }) => {
           priority
         />
       </div>
-      <div className="hidden lg:flex lg:justify-center lg:items-center lg:absolute lg:inset-0 opacity-90">
+      <div className="hidden lg:flex lg:justify-center lg:items-center lg:absolute lg:inset-0 opacity-90 px-3">
         <HeroRealEstateSearchForm className="" />
       </div>
     </div>

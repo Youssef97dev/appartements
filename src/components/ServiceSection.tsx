@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import React, { FC, ReactNode } from "react";
+import { MdOutlineCleanHands } from "react-icons/md";
 
 export interface ServiceSectionProps {
   className?: string;
@@ -53,8 +54,8 @@ const ServiceSection: FC<ServiceSectionProps> = ({
 
           <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
             <div className="bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 p-6 rounded-lg shadow-lg text-center">
-              <div className="mb-4">
-                <i className="las la-toilet-paper text-4xl"></i>
+              <div className="mb-4 flex justify-center items-center">
+                <MdOutlineCleanHands size={37} />
               </div>
               <span className="font-bold">Botanika Bathroom</span>
             </div>
@@ -92,7 +93,7 @@ const ServiceSection: FC<ServiceSectionProps> = ({
               <div className="mb-4">
                 <i className="las la-mosque text-4xl"></i>
               </div>
-              <span className="font-bold">View of Koutoubia</span>
+              <span className="font-bold">View</span>
             </div>
           </div>
         </div>

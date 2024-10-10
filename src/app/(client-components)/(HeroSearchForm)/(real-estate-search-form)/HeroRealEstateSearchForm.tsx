@@ -35,7 +35,7 @@ const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
 
   return (
     <div
-      className={`nc-HeroRealEstateSearchForm w-full max-w-6xl py-5 lg:py-0 ${className}`}
+      className={`nc-HeroRealEstateSearchForm w-full max-w-3xl py-5 lg:py-0 ${className}`}
     >
       {renderForm()}
     </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Logo from "@/shared/Logo";
 import SocialsList1 from "@/shared/SocialsList1";
 import { CustomLink } from "@/data/types";
 import React from "react";
@@ -14,46 +13,24 @@ export interface WidgetFooterMenu {
 const widgetMenus: WidgetFooterMenu[] = [
   {
     id: "5",
-    title: "Getting started",
+    title: "Links",
     menus: [
-      { href: "#", label: "Installation" },
-      { href: "#", label: "Release Notes" },
-      { href: "#", label: "Upgrade Guide" },
-      { href: "#", label: "Browser Support" },
-      { href: "#", label: "Editor Support" },
+      { href: "#", label: "Home" },
+      { href: "#", label: "Services" },
+      { href: "#", label: "About us" },
+      { href: "#", label: "Contact" },
     ],
   },
   {
     id: "1",
-    title: "Explore",
+    title: "Contact",
     menus: [
-      { href: "#", label: "Design features" },
-      { href: "#", label: "Prototyping" },
-      { href: "#", label: "Design systems" },
-      { href: "#", label: "Pricing" },
-      { href: "#", label: "Security" },
-    ],
-  },
-  {
-    id: "2",
-    title: "Resources",
-    menus: [
-      { href: "#", label: "Best practices" },
-      { href: "#", label: "Support" },
-      { href: "#", label: "Developers" },
-      { href: "#", label: "Learn design" },
-      { href: "#", label: "Releases" },
-    ],
-  },
-  {
-    id: "4",
-    title: "Community",
-    menus: [
-      { href: "#", label: "Discussion Forums" },
-      { href: "#", label: "Code of Conduct" },
-      { href: "#", label: "Community Resources" },
-      { href: "#", label: "Contributing" },
-      { href: "#", label: "Concurrent Mode" },
+      {
+        href: "#",
+        label: "Angle Av Echouhada et Av El Kadissia, Marrakech 40000, Maroc",
+      },
+      { href: "#", label: "reservations@lesalamamarrakech.com" },
+      { href: "#", label: "+212 675-480018" },
     ],
   },
 ];
@@ -61,7 +38,7 @@ const widgetMenus: WidgetFooterMenu[] = [
 const Footer: React.FC = () => {
   const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
     return (
-      <div key={index} className="text-sm">
+      <div key={index} className="text-sm md:text-left text-center">
         <h2 className="font-semibold text-neutral-700 dark:text-neutral-200">
           {menu.title}
         </h2>
@@ -85,10 +62,12 @@ const Footer: React.FC = () => {
   return (
     <>
       <div className="nc-Footer relative py-24 lg:py-28 border-t border-neutral-200 dark:border-neutral-700">
-        <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
-          <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
+        <div className="container flex flex-col md:flex-row justify-between items-center md:items-start gap-5">
+          <div className=" gap-5 flex flex-col">
             <div className="col-span-2 md:col-span-1">
-              <Logo />
+              <h2 className="font-semibold text-neutral-700 dark:text-neutral-200">
+                Social Media
+              </h2>
             </div>
             <div className="col-span-2 flex items-center md:col-span-3">
               <SocialsList1 className="flex items-center space-x-3 lg:space-x-0 lg:flex-col lg:space-y-2.5 lg:items-start" />

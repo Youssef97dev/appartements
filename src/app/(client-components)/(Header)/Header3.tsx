@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import React, { FC, useEffect, useRef, useState } from "react";
 import Logo from "@/shared/Logo";
@@ -6,7 +6,7 @@ import useOutsideAlerter from "@/hooks/useOutsideAlerter";
 import NotifyDropdown from "./NotifyDropdown";
 import MenuBar from "@/shared/MenuBar";
 import { SearchTab } from "../(HeroSearchForm)/HeroSearchForm";
-import HeroSearchForm2MobileFactory from "../(HeroSearchForm2Mobile)/HeroSearchForm2MobileFactory";
+//import HeroSearchForm2MobileFactory from "../(HeroSearchForm2Mobile)/HeroSearchForm2MobileFactory";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import HeroSearchFormSmall from "../(HeroSearchFormSmall)/HeroSearchFormSmall";
@@ -162,7 +162,6 @@ const Header3: FC<Header3Props> = ({ className = "" }) => {
         ></div>
         <div className="relative px-4 lg:container h-[88px] flex">
           <div className="flex-1 flex justify-between">
-            {/* Logo (lg+) */}
             <div className="relative z-10 hidden md:flex flex-1 items-center">
               <Logo />
             </div>
@@ -171,13 +170,10 @@ const Header3: FC<Header3Props> = ({ className = "" }) => {
               <div className="flex-1 hidden lg:flex self-center">
                 {renderButtonOpenHeroSearch()}
               </div>
-              <div className="self-center flex-1 lg:hidden w-full max-w-lg mx-auto">
-                <HeroSearchForm2MobileFactory />
-              </div>
+              <div className="self-center flex-1 lg:hidden w-full max-w-lg mx-auto"></div>
               {renderHeroSearch()}
             </div>
 
-            {/* NAV */}
             <div className="hidden md:flex relative z-10 flex-1 justify-end text-neutral-700 dark:text-neutral-100">
               <div className=" flex space-x-1">
                 <Link
@@ -198,4 +194,4 @@ const Header3: FC<Header3Props> = ({ className = "" }) => {
   );
 };
 
-export default Header3;
+export default Header3;*/

@@ -1,6 +1,5 @@
 import BackgroundSection from "@/components/BackgroundSection";
 import BgGlassmorphism from "@/components/BgGlassmorphism";
-import SectionGridAuthorBox from "@/components/SectionGridAuthorBox";
 import SectionSubscribe2 from "@/components/SectionSubscribe2";
 import React, { ReactNode } from "react";
 import SectionHeroArchivePage from "../(server-components)/SectionHeroArchivePage";
@@ -29,7 +28,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
         {/* SECTION */}
         <div className="relative py-16 mb-24 lg:mb-28">
           <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 " />
-          <SectionGridAuthorBox />
         </div>
       </div>
     </div>

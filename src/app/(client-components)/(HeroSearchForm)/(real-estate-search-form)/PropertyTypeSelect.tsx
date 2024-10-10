@@ -4,6 +4,7 @@ import { Popover, Transition } from "@headlessui/react";
 import Checkbox from "@/shared/Checkbox";
 import { ClassOfProperties } from "../../type";
 import { HomeIcon } from "@heroicons/react/24/outline";
+import ButtonSubmit from "../ButtonSubmit";
 
 const defaultPropertyType: ClassOfProperties[] = [
   {
@@ -54,26 +55,32 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
     <Popover className="flex relative flex-1">
       {({ open, close }) => (
         <>
-          <Popover.Button
-            className={`flex z-10 text-left w-full flex-shrink-0 items-center ${fieldClassName} space-x-3 focus:outline-none cursor-pointer ${
-              open ? "nc-hero-field-focused" : ""
-            }`}
-            onClickCapture={() => document.querySelector("html")?.click()}
-          >
-            <div className="text-neutral-300 dark:text-neutral-400">
-              <HomeIcon className="w-5 h-5 lg:w-7 lg:h-7" />
-            </div>
-            <div className="flex-1">
-              <span className="block xl:text-lg font-semibold overflow-hidden">
-                <span className="line-clamp-1">
-                  {typeOfPropertyText || `Type`}
+          <div className="flex-1 z-10 flex items-center focus:outline-none cursor-pointer">
+            <Popover.Button
+              className={`flex z-10 text-left w-full flex-shrink-0 items-center ${fieldClassName} space-x-3 focus:outline-none cursor-pointer ${
+                open ? "nc-hero-field-focused" : ""
+              }`}
+              onClickCapture={() => document.querySelector("html")?.click()}
+            >
+              <div className="text-neutral-300 dark:text-neutral-400">
+                <HomeIcon className="w-5 h-5 lg:w-7 lg:h-7" />
+              </div>
+              <div className="flex-1">
+                <span className="block xl:text-lg font-semibold overflow-hidden">
+                  <span className="line-clamp-1">
+                    {typeOfPropertyText || `Type`}
+                  </span>
                 </span>
-              </span>
-              <span className="block mt-1 text-sm text-neutral-400 leading-none font-light ">
-                Property type
-              </span>
-            </div>
-          </Popover.Button>
+                <span className="block mt-1 text-sm text-neutral-400 leading-none font-light ">
+                  Property type
+                </span>
+              </div>
+              <div className="pr-2">
+                <ButtonSubmit href="/listing-real-estate" />
+              </div>
+            </Popover.Button>
+            {/* BUTTON SUBMIT OF FORM */}
+          </div>
 
           {open && (
             <div className="h-8 absolute self-center top-1/2 -translate-y-1/2 z-0 -inset-x-0.5 bg-white dark:bg-neutral-800"></div>
