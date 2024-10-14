@@ -1,5 +1,4 @@
 import React, { FC, Fragment, useState } from "react";
-import CheckOutPagePageMain from "@/app/checkout/PageMain";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
@@ -58,12 +57,6 @@ const ModalReserveMobile: FC<ModalReserveMobileProps> = ({
                       >
                         <XMarkIcon className="w-5 h-5 text-black dark:text-white" />
                       </button>
-                    </div>
-
-                    <div className="flex-1 pt-12 py-1 flex flex-col ">
-                      <div className="flex-1 bg-white dark:bg-neutral-900">
-                        <CheckOutPagePageMain />
-                      </div>
                     </div>
                   </>
                 </Dialog.Panel>
