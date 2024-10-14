@@ -2,7 +2,8 @@
 
 import SocialsList1 from "@/shared/SocialsList1";
 import { CustomLink } from "@/data/types";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export interface WidgetFooterMenu {
   id: string;
@@ -10,32 +11,36 @@ export interface WidgetFooterMenu {
   menus: CustomLink[];
 }
 
-const widgetMenus: WidgetFooterMenu[] = [
-  {
-    id: "5",
-    title: "Links",
-    menus: [
-      { href: "#", label: "Home" },
-      { href: "#", label: "Services" },
-      { href: "#", label: "About us" },
-      { href: "#", label: "Contact" },
-    ],
-  },
-  {
-    id: "1",
-    title: "Contact",
-    menus: [
-      {
-        href: "#",
-        label: "Angle Av Echouhada et Av El Kadissia, Marrakech 40000, Maroc",
-      },
-      { href: "#", label: "reservations@lesalamamarrakech.com" },
-      { href: "#", label: "+212 675-480018" },
-    ],
-  },
-];
-
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  const widgetMenus: WidgetFooterMenu[] = [
+    {
+      id: "5",
+      title: "Links",
+      menus: [
+        { href: "#", label: t("menu.home") },
+        { href: "#service", label: t("menu.services") },
+        { href: "#about", label: t("menu.aboutus") },
+        { href: "/contact", label: t("menu.contact") },
+      ],
+    },
+    {
+      id: "1",
+      title: t("menu.contact"),
+      menus: [
+        {
+          href: "#",
+          label: "Angle Av Echouhada et Av El Kadissia, Marrakech 40000, Maroc",
+        },
+        { href: "#", label: "reservations@lesalamamarrakech.com" },
+        { href: "#", label: "+212 675-480018" },
+      ],
+    },
+  ];
   const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
     return (
       <div key={index} className="text-sm md:text-left text-center">
@@ -59,7 +64,7 @@ const Footer: React.FC = () => {
     );
   };
 
-  return (
+  return isClient ? (
     <>
       <div className="nc-Footer relative py-24 lg:py-28 border-t border-neutral-200 dark:border-neutral-700">
         <div className="container flex flex-col md:flex-row justify-between items-center md:items-start gap-5">
@@ -77,6 +82,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </>
+  ) : (
+    <></>
   );
 };
 

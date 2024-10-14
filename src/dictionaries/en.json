@@ -1,0 +1,46 @@
+{
+  "menu": {
+    "home": "Home",
+    "services": "Services",
+    "aboutus": "About us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Discover the Soul",
+    "title_br": "of Marrakech",
+    "where": "Where are you going ?",
+    "property_type": "Property type",
+    "property_1": "Duplex House",
+    "description_1": "Have a place to yourself",
+    "property_2": "Ferme House",
+    "description_2": "Have your own room and share some common spaces",
+    "property_3": "Chalet House",
+    "description_3": "Have a private or shared room in a boutique hotel, hostel, and more",
+    "property_4": "Maison House",
+    "description_4": "Stay in a shared space, like a common room",
+    "featured": "Featured places to stay",
+    "recent": "Recent searches"
+  },
+  "about": "Welcome to our charming Marrakech apartments! Located in vibrant neighborhoods, our spaces blend modern comfort with Moroccan style. Perfect for both short and long stays, we offer all the amenities you need for a memorable visit. We look forward to hosting you!",
+  "service": "With all the conditions for your maximum comfort.",
+  "contact": {
+    "address": "ADDRESS",
+    "phone": "PHONE",
+    "fullname": "Full name",
+    "emailadresse": "Email address",
+    "send": "Send Message"
+  },
+  "listing": {
+    "show": "Show all photos",
+    "hostedby": "Hosted by",
+    "guests": "guests",
+    "baths": "baths",
+    "bedrooms": "bedrooms",
+    "stayinfo": "Stay information",
+    "ameneties": "Amenities",
+    "amenetie_desc": "About the property's amenities and services",
+    "viewall": "View all",
+    "nextto": "Next to",
+    "nextto_desc": "Nearby attractions and places of interest"
+  }
+}

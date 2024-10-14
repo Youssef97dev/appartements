@@ -7,12 +7,12 @@ export interface SectionHero3Props {
   className?: string;
 }
 
-const SectionHero3: FC<SectionHero3Props> = ({ className = "" }) => {
+const SectionHero3 = ({ className = "", tran }: any) => {
   return (
     <div className={`relative ${className}`} data-nc-id="SectionHero3">
       <div className="absolute z-10 inset-x-0 top-[10%] sm:top-[15%] text-center flex flex-col items-center max-w-2xl mx-auto space-y-4 lg:space-y-5 xl:space-y-8">
         <h2 className="font-bold text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl !leading-[115%] ">
-          Discover the Soul <br /> of Marrakech
+          {tran("hero.title")} <br /> {tran("hero.title_br")}
         </h2>
       </div>
 

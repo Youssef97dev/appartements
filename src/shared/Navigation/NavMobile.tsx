@@ -5,23 +5,50 @@ import ButtonClose from "@/shared/ButtonClose";
 import Logo from "@/shared/Logo";
 import { Disclosure } from "@headlessui/react";
 import { NavItemType } from "./NavigationItem";
-import { NAVIGATION_DEMO } from "@/data/navigation";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import SocialsList from "@/shared/SocialsList";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import Link from "next/link";
 import LangDropdown from "@/app/(client-components)/(Header)/LangDropdown";
+import { useTranslation } from "react-i18next";
+import ncNanoId from "@/utils/ncNanoId";
 
 export interface NavMobileProps {
   data?: NavItemType[];
   onClickClose?: () => void;
 }
 
-const NavMobile: React.FC<NavMobileProps> = ({
-  data = NAVIGATION_DEMO,
-  onClickClose,
-}) => {
+const NavMobile: React.FC<NavMobileProps> = ({ onClickClose }) => {
+  const { t } = useTranslation();
+
+  const NAVIGATION_DEMO: any[] = [
+    {
+      id: ncNanoId(),
+      href: "/",
+      name: t("menu.home"),
+      type: "none",
+    },
+    {
+      id: ncNanoId(),
+      href: "/#service",
+      name: t("menu.services"),
+      type: "none",
+    },
+    {
+      id: ncNanoId(),
+      href: "/#about",
+      name: t("menu.aboutus"),
+      type: "none",
+    },
+    {
+      id: ncNanoId(),
+      href: "/contact",
+      name: t("menu.contact"),
+      type: "none",
+    },
+  ];
+
   const _renderMenuChild = (item: NavItemType) => {
     return (
       <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
@@ -124,7 +151,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
         </span>
       </div>
       <ul className="flex flex-col py-6 px-2 space-y-1">
-        {data.map(_renderItem)}
+        {NAVIGATION_DEMO.map(_renderItem)}
       </ul>
       <div className="flex items-center justify-between py-6 px-5">
         <LangDropdown

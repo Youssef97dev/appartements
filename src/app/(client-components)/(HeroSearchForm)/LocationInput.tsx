@@ -3,6 +3,7 @@
 import { ClockIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import React, { useState, useRef, useEffect, FC } from "react";
 import ClearDataButton from "./ClearDataButton";
+import { useTranslation } from "react-i18next";
 
 export interface LocationInputProps {
   placeHolder?: string;
@@ -15,10 +16,11 @@ export interface LocationInputProps {
 const LocationInput: FC<LocationInputProps> = ({
   autoFocus = false,
   placeHolder = "Location",
-  desc = "Where are you going?",
+  desc,
   className = "nc-flex-1.5",
   divHideVerticalLineClass = "left-10 -right-0.5",
 }) => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -65,7 +67,7 @@ const LocationInput: FC<LocationInputProps> = ({
     return (
       <>
         <h3 className="block mt-2 sm:mt-0 px-4 sm:px-8 font-semibold text-base sm:text-lg text-neutral-800 dark:text-neutral-100">
-          Recent searches
+          {t("hero.recent")}
         </h3>
         <div className="mt-2">
           {["Marrakech - Hivernage", "Marrakech Lalla Takerkoust"].map(

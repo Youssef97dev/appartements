@@ -16,11 +16,15 @@ import StayDatesRangeInput from "../StayDatesRangeInput";
 import GuestsInput from "../GuestsInput";
 import { Route } from "next";
 import { StayDataType } from "@/data/types";
+import { useTranslation } from "react-i18next";
 
 export interface ListingStayDetailPageProps {}
 
 const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   //
+  const { t } = useTranslation();
+
+  const [isClient, setIsClient] = useState(false);
 
   let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
@@ -30,6 +34,10 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const params = useParams();
   const { id } = params;
   const data = DEMO_STAY_LISTINGS[parseInt(id) - 1];
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   function closeModalAmenities() {
     setIsOpenModalAmenities(false);
@@ -73,7 +81,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="flex items-center">
           <Avatar hasChecked sizeClass="h-10 w-10" radius="rounded-full" />
           <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">
-            Hosted by{" "}
+            {t("listing.hostedby")}{" "}
             <span className="text-neutral-900 dark:text-neutral-200 font-medium">
               {data.author}
             </span>
@@ -89,21 +97,27 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
             <i className=" las la-user text-2xl "></i>
             <span className="">
               {data.maxGuests}{" "}
-              <span className="hidden sm:inline-block">guests</span>
+              <span className="hidden sm:inline-block">
+                {t("listing.guests")}
+              </span>
             </span>
           </div>
           <div className="flex items-center space-x-3">
             <i className=" las la-bath text-2xl"></i>
             <span className=" ">
               {data.bathrooms}{" "}
-              <span className="hidden sm:inline-block">baths</span>
+              <span className="hidden sm:inline-block">
+                {t("listing.baths")}
+              </span>
             </span>
           </div>
           <div className="flex items-center space-x-3">
             <i className=" las la-door-open text-2xl"></i>
             <span className=" ">
               {data.bedrooms}{" "}
-              <span className="hidden sm:inline-block">bedrooms</span>
+              <span className="hidden sm:inline-block">
+                {t("listing.bedrooms")}
+              </span>
             </span>
           </div>
         </div>
@@ -114,7 +128,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
   const renderSection2 = () => {
     return (
       <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Stay information</h2>
+        <h2 className="text-2xl font-semibold">{t("listing.stayinfo")}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
           {data.description.map((item, i) => (
@@ -132,9 +146,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Amenities </h2>
+          <h2 className="text-2xl font-semibold">{t("listing.ameneties")} </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            {` About the property's amenities and services`}
+            {t("listing.amenetie_desc")}
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
@@ -154,7 +168,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200"></div>
         <div>
           <ButtonSecondary onClick={openModalAmenities}>
-            View All {data.ameneties.length} amenities
+            {t("listing.viewall")} {data.ameneties.length}{" "}
+            {t("listing.ameneties")}
           </ButtonSecondary>
         </div>
         {renderMotalAmenities()}
@@ -206,7 +221,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
                       className="text-lg font-medium leading-6 text-gray-900"
                       id="headlessui-dialog-title-70"
                     >
-                      Amenities
+                      {t("listing.ameneties")}
                     </h3>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalAmenities} />
@@ -240,9 +255,9 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Next to </h2>
+          <h2 className="text-2xl font-semibold">{t("listing.nextto")} </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            {` Nearby attractions and places of interest`}
+          {t("listing.nextto_desc")}
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
@@ -380,12 +395,14 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>*/}
 
         {/* SUBMIT */}
-        <ButtonPrimary href={"/checkout"}>Reserve</ButtonPrimary>
+        <ButtonPrimary href="https://purehouse.amenitiz.io/fr/booking/room">
+          Reserve
+        </ButtonPrimary>
       </div>
     );
   };
 
-  return (
+  return isClient ? (
     <div className="nc-ListingStayDetailPage">
       {/*  HEADER */}
       <header className="rounded-md sm:rounded-xl">
@@ -436,7 +453,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
           >
             <Squares2X2Icon className="w-5 h-5" />
             <span className="ml-2 text-neutral-800 text-sm font-medium">
-              Show all photos
+              {t("listing.show")}
             </span>
           </button>
         </div>
@@ -460,6 +477,8 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         </div>
       </main>
     </div>
+  ) : (
+    <></>
   );
 };
 

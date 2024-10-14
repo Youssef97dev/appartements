@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Logo from "@/shared/Logo";
 import Navigation from "@/shared/Navigation/Navigation";
 import MenuBar from "@/shared/MenuBar";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
@@ -10,7 +9,7 @@ export interface MainNav1Props {
   className?: string;
 }
 
-const MainNav1: FC<MainNav1Props> = ({ className = "" }) => {
+const MainNav1 = ({ className = "" }) => {
   return (
     <div className={`nc-MainNav1 relative z-10 ${className}`}>
       <div className="px-4 lg:container h-20 relative flex justify-between">

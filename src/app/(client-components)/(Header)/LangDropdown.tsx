@@ -1,51 +1,13 @@
+"use client";
 import { Popover, Tab, Transition } from "@headlessui/react";
 import {
   BanknotesIcon,
   GlobeAltIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import { FC, Fragment } from "react";
-import { headerCurrency } from "./CurrencyDropdown";
-
-export const headerLanguage = [
-  {
-    id: "English",
-    name: "English",
-    description: "United State",
-    href: "##",
-    active: true,
-  },
-  {
-    id: "Vietnamese",
-    name: "Vietnamese",
-    description: "Vietnamese",
-    href: "##",
-  },
-  {
-    id: "Francais",
-    name: "Francais",
-    description: "Belgique",
-    href: "##",
-  },
-  {
-    id: "Francais",
-    name: "Francais",
-    description: "Canada",
-    href: "##",
-  },
-  {
-    id: "Francais",
-    name: "Francais",
-    description: "Belgique",
-    href: "##",
-  },
-  {
-    id: "Francais",
-    name: "Francais",
-    description: "Canada",
-    href: "##",
-  },
-];
+import { FC, Fragment, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import i18next from "../../../../i18n";
 
 interface LangDropdownProps {
   panelClassName?: string;
@@ -61,26 +23,65 @@ const LangDropdown: FC<LangDropdownProps> = ({
   className = "hidden md:flex",
 }) => {
   const renderLang = (close: () => void) => {
+    const { t } = useTranslation();
+    const [lang, setLang] = useState(i18next.language);
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+      setIsClient(true);
+      i18next.changeLanguage(i18next.language);
+    }, []);
+
+    const headerLanguage = [
+      {
+        id: "English",
+        name: "English",
+        description: "United State",
+        href: "##",
+        label: "en",
+        active: lang === "en" ? true : false,
+      },
+      {
+        id: "Francais",
+        name: "Francais",
+        description: "Belgique",
+        href: "##",
+        label: "fr",
+        active: lang === "fr" ? true : false,
+      },
+    ];
+
+    const changeLanguage = (label: string) => {
+      localStorage.removeItem("lang");
+      i18next.changeLanguage(label);
+      localStorage.setItem("lang", label);
+      setLang(label);
+      close();
+      console.log(i18next.language);
+    };
+
     return (
-      <div className="grid gap-8 lg:grid-cols-2">
-        {headerLanguage.map((item, index) => (
-          <a
-            key={index}
-            href={item.href}
-            onClick={() => close()}
-            className={`flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 ${
-              item.active ? "bg-gray-100 dark:bg-gray-700" : "opacity-80"
-            }`}
-          >
-            <div className="">
-              <p className="text-sm font-medium ">{item.name}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                {item.description}
-              </p>
-            </div>
-          </a>
-        ))}
-      </div>
+      isClient && (
+        <div className="grid gap-8 lg:grid-cols-2">
+          {headerLanguage.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              onClick={() => changeLanguage(item.label)}
+              className={`flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 ${
+                item.active ? "bg-gray-100 dark:bg-gray-700" : "opacity-80"
+              }`}
+            >
+              <div className="">
+                <p className="text-sm font-medium ">{item.name}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  {item.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      )
     );
   };
 

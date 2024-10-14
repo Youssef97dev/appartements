@@ -23,6 +23,11 @@ const SiteHeader = () => {
 
   const [isTopOfPage, setIsTopOfPage] = useState(true);
 
+  const [client, setClient] = useState(false);
+  useEffect(() => {
+    setClient(true);
+  }, []);
+
   useEffect(() => {
     setIsTopOfPage(window.pageYOffset < 5);
   }, []);
@@ -35,11 +40,13 @@ const SiteHeader = () => {
     return <Header className={headerClassName} navType="MainNav1" />;
   };
 
-  return (
+  return client ? (
     <>
       {renderHeader()}
       <div ref={anchorRef} className="h-1 absolute invisible"></div>
     </>
+  ) : (
+    <></>
   );
 };
 

@@ -1,0 +1,46 @@
+{
+  "menu": {
+    "home": "Accueil",
+    "services": "Services",
+    "aboutus": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Découvrez l'âme ",
+    "title_br": "de Marrakech",
+    "where": "Où allez-vous ?",
+    "property_type": "Type de propriété",
+    "property_1": "Maison en duplex",
+    "description_1": "Ayez un endroit pour vous",
+    "property_2": "Ferme House",
+    "description_2": "Ayez votre propre chambre et partagez certains espaces communs",
+    "property_3": "Chalet House",
+    "description_3": "Disposez d'une chambre privée ou partagée dans un hôtel de charme, une auberge, etc,",
+    "property_4": "Maison House",
+    "description_4": "Séjourner dans un espace partagé, comme une salle commune",
+    "featured": "Lieux d'hébergement présentés",
+    "recent": "Recherches récentes"
+  },
+  "about": "Bienvenue dans nos charmants appartements de Marrakech ! Situés dans des quartiers animés, nos espaces allient confort moderne et style marocain. Parfaits pour les séjours de courte ou de longue durée, nous offrons toutes les commodités dont vous avez besoin pour une visite mémorable. Nous sommes impatients de vous accueillir !",
+  "service": "Avec toutes les conditions pour votre plus grand confort.",
+  "contact": {
+    "address": "ADRESSE",
+    "phone": "TÉLÉPHONE",
+    "fullname": "Nom complet",
+    "emailadresse": "Adresse e-mail",
+    "send": "Envoyer un message"
+  },
+  "listing": {
+    "show": "Afficher toutes les photos",
+    "hostedby": "Hébergé par",
+    "guests": "invités",
+    "baths": "bains",
+    "bedrooms": "chambres",
+    "stayinfo": "Informations sur le séjour",
+    "ameneties": "Équipements",
+    "amenetie_desc": "À propos des équipements et services de la propriété",
+    "viewall": "Afficher toutes les",
+    "nextto": "À côté de",
+    "nextto_desc": "Attractions et lieux d'intérêt à proximité"
+  }
+}

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import MainNav1 from "./MainNav1";
 
 export interface HeaderProps {

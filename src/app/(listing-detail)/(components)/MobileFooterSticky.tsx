@@ -35,7 +35,7 @@ const MobileFooterSticky = () => {
           renderChildren={({ openModal }) => (
             <ButtonPrimary
               sizeClass="px-5 sm:px-7 py-3 !rounded-2xl"
-              onClick={openModal}
+              href={"https://purehouse.amenitiz.io/fr/booking/room"}
             >
               Reserve
             </ButtonPrimary>

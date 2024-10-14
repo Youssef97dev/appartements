@@ -15,12 +15,14 @@ export interface SectionGridFeaturePropertyProps {
   subHeading?: ReactNode;
   headingIsCenter?: boolean;
   tabs?: string[];
+  tran?: any;
 }
 
 const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
+  tran,
   stayListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
+  heading = tran("hero.featured"),
   subHeading = "",
   headingIsCenter,
   tabs = [],

@@ -1,29 +1,38 @@
-import React, { FC } from "react";
+"use client";
+import React, { FC, useState, useEffect } from "react";
 import SocialsList from "@/shared/SocialsList";
 import Label from "@/components/Label";
 import Input from "@/shared/Input";
 import Textarea from "@/shared/Textarea";
 import ButtonPrimary from "@/shared/ButtonPrimary";
+import { useTranslation } from "react-i18next";
+import { BounceLoader } from "react-spinners";
 
 export interface PageContactProps {}
 
-const info = [
-  {
-    title: "🗺 ADDRESS",
-    desc: "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
-  },
-  {
-    title: "💌 EMAIL",
-    desc: "nc.example@example.com",
-  },
-  {
-    title: "☎ PHONE",
-    desc: "000-123-456-7890",
-  },
-];
-
 const PageContact: FC<PageContactProps> = ({}) => {
-  return (
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  const info = [
+    {
+      title: `🗺 ${t("contact.address")}`,
+      desc: "Angle Av Echouhada et Av El Kadissia, Marrakech 40000, Maroc",
+    },
+    {
+      title: "💌 EMAIL",
+      desc: "reservations@lesalamamarrakech.com",
+    },
+    {
+      title: `☎ ${t("contact.phone")}`,
+      desc: "+212 675-480018",
+    },
+  ];
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  return isClient ? (
     <div className={`nc-PageContact overflow-hidden`}>
       <div className="mb-24 lg:mb-32">
         <h2 className="my-16 sm:my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
@@ -52,7 +61,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
             <div>
               <form className="grid grid-cols-1 gap-6" action="#" method="post">
                 <label className="block">
-                  <Label>Full name</Label>
+                  <Label>{t("contact.fullname")}</Label>
 
                   <Input
                     placeholder="Example Doe"
@@ -75,13 +84,19 @@ const PageContact: FC<PageContactProps> = ({}) => {
                   <Textarea className="mt-1" rows={6} />
                 </label>
                 <div>
-                  <ButtonPrimary type="submit">Send Message</ButtonPrimary>
+                  <ButtonPrimary type="submit">
+                    {t("contact.send")}
+                  </ButtonPrimary>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="h-screen flex justify-center items-center">
+      <BounceLoader color="#805dca" />
     </div>
   );
 };

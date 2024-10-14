@@ -5,30 +5,7 @@ import Checkbox from "@/shared/Checkbox";
 import { ClassOfProperties } from "../../type";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import ButtonSubmit from "../ButtonSubmit";
-
-const defaultPropertyType: ClassOfProperties[] = [
-  {
-    name: "Duplex House",
-    description: "Have a place to yourself",
-    checked: true,
-  },
-  {
-    name: "Ferme House",
-    description: "Have your own room and share some common spaces",
-    checked: false,
-  },
-  {
-    name: "Chalet House",
-    description:
-      "Have a private or shared room in a boutique hotel, hostel, and more",
-    checked: false,
-  },
-  {
-    name: "Maison House",
-    description: "Stay in a shared space, like a common room",
-    checked: false,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export interface PropertyTypeSelectProps {
   onChange?: (data: any) => void;
@@ -39,6 +16,31 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
   onChange,
   fieldClassName = "[ nc-hero-field-padding ]",
 }) => {
+  const { t } = useTranslation();
+
+  const defaultPropertyType: ClassOfProperties[] = [
+    {
+      name: t("hero.property_1"),
+      description: t("hero.description_1"),
+      checked: true,
+    },
+    {
+      name: t("hero.property_2"),
+      description: t("hero.description_2"),
+      checked: false,
+    },
+    {
+      name: t("hero.property_3"),
+      description: t("hero.description_3"),
+      checked: false,
+    },
+    {
+      name: t("hero.property_4"),
+      description: t("hero.description_4"),
+      checked: false,
+    },
+  ];
+
   const [typeOfProperty, setTypeOfProperty] =
     React.useState<ClassOfProperties[]>(defaultPropertyType);
 
