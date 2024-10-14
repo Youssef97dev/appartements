@@ -2,8 +2,6 @@
 
 import React, { FC, useState } from "react";
 import StaySearchForm from "./(stay-search-form)/StaySearchForm";
-import RentalCarSearchForm from "./(car-search-form)/RentalCarSearchForm";
-import FlightSearchForm from "./(flight-search-form)/FlightSearchForm";
 
 export type SearchTab = "Stays" | "Experiences" | "Cars" | "Flights";
 
@@ -51,10 +49,6 @@ const HeroSearchForm: FC<HeroSearchFormProps> = ({
     switch (tabActive) {
       case "Stays":
         return <StaySearchForm />;
-      case "Cars":
-        return <RentalCarSearchForm />;
-      case "Flights":
-        return <FlightSearchForm />;
 
       default:
         return null;
