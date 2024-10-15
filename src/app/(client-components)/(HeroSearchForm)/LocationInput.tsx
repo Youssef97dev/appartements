@@ -4,6 +4,7 @@ import { ClockIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import React, { useState, useRef, useEffect, FC } from "react";
 import ClearDataButton from "./ClearDataButton";
 import { useTranslation } from "react-i18next";
+import { userAppStore } from "@/store/store";
 
 export interface LocationInputProps {
   placeHolder?: string;
@@ -21,6 +22,7 @@ const LocationInput: FC<LocationInputProps> = ({
   divHideVerticalLineClass = "left-10 -right-0.5",
 }) => {
   const { t } = useTranslation();
+  const { setSearchLocation } = userAppStore();
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -60,6 +62,7 @@ const LocationInput: FC<LocationInputProps> = ({
 
   const handleSelectLocation = (item: string) => {
     setValue(item);
+    setSearchLocation(item);
     setShowPopover(false);
   };
 

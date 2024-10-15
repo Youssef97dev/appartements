@@ -6,6 +6,7 @@ import { ClassOfProperties } from "../../type";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import ButtonSubmit from "../ButtonSubmit";
 import { useTranslation } from "react-i18next";
+import { userAppStore } from "@/store/store";
 
 export interface PropertyTypeSelectProps {
   onChange?: (data: any) => void;
@@ -17,6 +18,8 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
   fieldClassName = "[ nc-hero-field-padding ]",
 }) => {
   const { t } = useTranslation();
+
+  const { setSelectionType } = userAppStore();
 
   const defaultPropertyType: ClassOfProperties[] = [
     {
@@ -108,15 +111,18 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
                         subLabel={item.description}
                         defaultChecked={typeOfProperty[index].checked}
                         onChange={(e) => {
-                          const newState = typeOfProperty.map((item, i) => {
-                            if (i === index) {
-                              return { ...item, checked: e };
+                          const newState: any = typeOfProperty.map(
+                            (item, i) => {
+                              if (i === index) {
+                                return { ...item, checked: e };
+                              }
+                              return item;
                             }
-                            return item;
-                          });
+                          );
                           setTypeOfProperty(() => {
                             return newState;
                           });
+                          setSelectionType(newState);
                           onChange && onChange(newState);
                         }}
                       />
