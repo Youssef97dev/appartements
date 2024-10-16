@@ -18,22 +18,26 @@ const RealestateSearchForm = () => {
   const [typeOfProperty, setTypeOfProperty] = useState<ClassOfProperties[]>([
     {
       name: "Duplex House",
+      value: "Duplex House",
       description: "Have a place to yourself",
       checked: true,
     },
     {
       name: "Ferme House",
+      value: "Ferme House",
       description: "Have your own room and share some common spaces",
       checked: true,
     },
     {
       name: "Chalet House",
+      value: "Chalet House",
       description:
         "Have a private or shared room in a boutique hotel, hostel, and more",
       checked: true,
     },
     {
       name: "Maison House",
+      value: "Maison House",
       description: "Stay in a shared space, like a common room",
       checked: false,
     },
