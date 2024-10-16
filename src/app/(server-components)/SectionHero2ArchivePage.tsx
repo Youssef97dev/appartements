@@ -4,6 +4,10 @@ import React, { FC, useState, useEffect } from "react";
 import imagePng from "@/images/hero-right-3.png";
 import Image from "next/image";
 import HeroRealEstateSearchForm from "../(client-components)/(HeroSearchForm)/(real-estate-search-form)/HeroRealEstateSearchForm";
+import { DEMO_STAY_LISTINGS } from "@/data/listings";
+import { StayDataType } from "@/data/types";
+// OTHER DEMO WILL PASS PROPS
+const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS;
 
 export interface SectionHero2ArchivePageProps {
   className?: string;
@@ -38,7 +42,7 @@ const SectionHero2ArchivePage: FC<SectionHero2ArchivePageProps> = ({
               <span className="ml-2.5">Marrakesh </span>
               <span className="mx-5"></span>
               <i className="text-2xl las la-home"></i>
-              <span className="ml-2.5">112 properties</span>
+              <span className="ml-2.5">{DEMO_DATA.length} properties</span>
             </div>
           </div>
         </div>

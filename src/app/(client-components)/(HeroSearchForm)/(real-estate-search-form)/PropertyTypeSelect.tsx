@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment, FC } from "react";
+import React, { Fragment, FC, useEffect } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import Checkbox from "@/shared/Checkbox";
 import { ClassOfProperties } from "../../type";
@@ -24,21 +24,25 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
   const defaultPropertyType: ClassOfProperties[] = [
     {
       name: t("hero.property_1"),
+      value: "Duplex House",
       description: t("hero.description_1"),
       checked: true,
     },
     {
       name: t("hero.property_2"),
+      value: "Ferme House",
       description: t("hero.description_2"),
       checked: false,
     },
     {
       name: t("hero.property_3"),
+      value: "Chalet House",
       description: t("hero.description_3"),
       checked: false,
     },
     {
       name: t("hero.property_4"),
+      value: "Maison House",
       description: t("hero.description_4"),
       checked: false,
     },
@@ -56,6 +60,17 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
       })
       .join(", ");
   }
+
+  useEffect(() => {
+    const newState: any = typeOfProperty.map((item, i) => {
+      if (i === 0) {
+        return { ...item, checked: true };
+      }
+      return item;
+    });
+    setSelectionType(newState);
+  }, []);
+
   return (
     <Popover className="flex relative flex-1">
       {({ open, close }) => (

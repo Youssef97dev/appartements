@@ -8,6 +8,7 @@ export type StaySearchFormFields = "location" | "guests" | "dates";
 
 export interface PropertyType {
   name: string;
+  value: string;
   description: string;
   checked: boolean;
 }

@@ -91,6 +91,7 @@ export interface StayDataType {
   description: string[];
   ameneties: Amenity[];
   next_to: string[];
+  type: string;
 }
 
 //

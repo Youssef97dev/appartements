@@ -80,7 +80,8 @@
       "Sports center",
       "Nightlife",
       "City"
-    ]
+    ],
+    "type": "Duplex House"
   },
   {
     "id": "2",
@@ -164,7 +165,8 @@
       "Sports center",
       "Nightlife",
       "City"
-    ]
+    ],
+    "type": "Maison House"
   },
   {
     "id": "3",
@@ -221,7 +223,7 @@
     "bathrooms": 2,
     "square": 1200,
     "map": {
-      "place": "Marrakech, Marrakech-Safi, Maroc",
+      "place": "Marrakech Lalla Takerkoust",
       "src": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3397.3654115948!2d-8.003492999999999!3d31.623844000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM3JzI1LjgiTiA4wrAwMCcxMi42Ilc!5e0!3m2!1sfr!2sma!4v1724942979988!5m2!1sfr!2sma"
     },
     "city": "Rabat, Morocco",
@@ -248,6 +250,7 @@
       "Sports center",
       "Nightlife",
       "City"
-    ]
+    ],
+    "type": "Chalet House"
   }
 ]
